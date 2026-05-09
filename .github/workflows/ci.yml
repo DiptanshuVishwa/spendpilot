@@ -35,6 +35,8 @@ jobs:
     - name: Build Next.js
       run: npm run build
       env:
-        # Mock env vars for build process if needed
+        # Mock env vars for build process
         NEXT_PUBLIC_SUPABASE_URL: "https://mock.supabase.co"
         NEXT_PUBLIC_SUPABASE_ANON_KEY: "mock_key"
+        GROQ_API_KEY: "mock_groq_key"
+        RESEND_API_KEY: "mock_resend_key"
