@@ -6,6 +6,14 @@ import { Separator } from '@/components/ui/separator';
 import { AlertTriangle, Sparkles, Zap, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { AIStackItem } from '@/types';
+
+interface AuditRecord {
+  total_monthly_savings: number;
+  total_annual_savings: number;
+  ai_summary: string;
+  tools: AIStackItem[];
+}
 
 export const revalidate = 0; // Dynamic route
 
@@ -13,7 +21,7 @@ export default async function PublicReportPage({ params }: { params: Promise<{ s
   const resolvedParams = await params;
   const { slug } = resolvedParams;
 
-  let audit: any = null;
+  let audit: AuditRecord | null = null;
   
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     const { data, error } = await supabase
@@ -35,9 +43,9 @@ export default async function PublicReportPage({ params }: { params: Promise<{ s
         total_annual_savings: 5040,
         ai_summary: "Your stack appears heavily overprovisioned for your team size. We noticed overlapping subscriptions between Cursor and GitHub Copilot, and an enterprise plan on ChatGPT that is unnecessary for a small team.",
         tools: [
-          { toolName: 'ChatGPT', plan: 'Enterprise', monthlySpend: 1200, seats: 20 },
-          { toolName: 'Cursor', plan: 'Business', monthlySpend: 800, seats: 20 },
-          { toolName: 'GitHub Copilot', plan: 'Business', monthlySpend: 380, seats: 20 }
+          { id: '1', toolName: 'ChatGPT', plan: 'Enterprise', monthlySpend: 1200, seats: 20 },
+          { id: '2', toolName: 'Cursor', plan: 'Business', monthlySpend: 800, seats: 20 },
+          { id: '3', toolName: 'GitHub Copilot', plan: 'Business', monthlySpend: 380, seats: 20 }
         ]
       };
     } else {
@@ -74,7 +82,7 @@ export default async function PublicReportPage({ params }: { params: Promise<{ s
               ${auditResult.totalMonthlySavings.toLocaleString()}<span className="text-3xl text-gray-400 font-medium">/mo</span>
             </div>
             <p className="text-xl text-gray-500">
-              That's <strong>${auditResult.totalAnnualSavings.toLocaleString()}</strong> added back to the runway every year.
+              That&apos;s <strong>${auditResult.totalAnnualSavings.toLocaleString()}</strong> added back to the runway every year.
             </p>
           </div>
 
@@ -146,7 +154,7 @@ export default async function PublicReportPage({ params }: { params: Promise<{ s
           <div className="text-center py-10">
             <h3 className="text-2xl font-bold mb-4">Does your stack look like this?</h3>
             <p className="text-gray-500 mb-6 max-w-lg mx-auto">
-              Find out if you're overpaying for AI tools. Run a free, deterministic audit of your own SaaS stack in 60 seconds.
+              Find out if you&apos;re overpaying for AI tools. Run a free, deterministic audit of your own SaaS stack in 60 seconds.
             </p>
             <Link href="/audit/new">
               <Button size="lg" className="rounded-full h-14 px-8 text-lg font-bold shadow-lg shadow-indigo-200">

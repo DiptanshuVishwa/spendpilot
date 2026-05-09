@@ -1,4 +1,4 @@
-import { ToolName, PlanType } from '../types';
+import { ToolName } from '../types';
 
 export const PRICING_DATA: Record<ToolName, Record<string, { price: number; type: 'per_user' | 'flat' }>> = {
   'Cursor': {

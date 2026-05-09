@@ -1,10 +1,20 @@
-import { notFound } from 'next/navigation';
+// Removed unused notFound import
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, CheckCircle2, Copy, AlertTriangle, Sparkles, Share, Share2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Copy, AlertTriangle, Sparkles, Share2 } from 'lucide-react';
+import { AIStackItem } from '@/types';
+
+interface AuditRecord {
+  id: string;
+  total_monthly_savings: number;
+  total_annual_savings: number;
+  ai_summary: string;
+  tools: AIStackItem[];
+  public_slug: string;
+}
 import { LeadCaptureForm } from '@/components/lead-capture-form';
 
 export const revalidate = 0; // Dynamic route
@@ -14,7 +24,7 @@ export default async function AuditResultPage({ params }: { params: Promise<{ id
   const { id } = resolvedParams;
 
   // Try to fetch from Supabase
-  let audit: any = null;
+  let audit: AuditRecord | null = null;
   
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     const { data, error } = await supabase
@@ -41,9 +51,9 @@ export default async function AuditResultPage({ params }: { params: Promise<{ id
       total_annual_savings: 5040,
       ai_summary: "Your stack appears heavily overprovisioned for your team size. We noticed overlapping subscriptions between Cursor and GitHub Copilot, and an enterprise plan on ChatGPT that is unnecessary for a small team.",
       tools: [
-        { toolName: 'ChatGPT', plan: 'Enterprise', monthlySpend: 1200, seats: 20 },
-        { toolName: 'Cursor', plan: 'Business', monthlySpend: 800, seats: 20 },
-        { toolName: 'GitHub Copilot', plan: 'Business', monthlySpend: 380, seats: 20 }
+        { id: '1', toolName: 'ChatGPT', plan: 'Enterprise', monthlySpend: 1200, seats: 20 },
+        { id: '2', toolName: 'Cursor', plan: 'Business', monthlySpend: 800, seats: 20 },
+        { id: '3', toolName: 'GitHub Copilot', plan: 'Business', monthlySpend: 380, seats: 20 }
       ],
       public_slug: 'demo-slug-123'
     };
@@ -81,7 +91,7 @@ export default async function AuditResultPage({ params }: { params: Promise<{ id
               ${auditResult.totalMonthlySavings.toLocaleString()}<span className="text-3xl text-gray-400 font-medium">/mo</span>
             </div>
             <p className="text-xl text-gray-500">
-              That's <strong>${auditResult.totalAnnualSavings.toLocaleString()}</strong> added back to your runway every year.
+              That&apos;s <strong>${auditResult.totalAnnualSavings.toLocaleString()}</strong> added back to your runway every year.
             </p>
           </div>
 
@@ -97,7 +107,7 @@ export default async function AuditResultPage({ params }: { params: Promise<{ id
                     <CheckCircle2 className="h-6 w-6 text-green-600 mt-1" />
                     <div>
                       <h3 className="font-bold text-lg text-green-900">Your stack is highly optimized!</h3>
-                      <p className="text-green-800 mt-1">We couldn't find any obvious overlapping tools or oversized plans in your current configuration. Great job managing your burn rate.</p>
+                      <p className="text-green-800 mt-1">We couldn&apos;t find any obvious overlapping tools or oversized plans in your current configuration. Great job managing your burn rate.</p>
                     </div>
                   </CardContent>
                 </Card>

@@ -44,7 +44,7 @@ export default function LandingPage() {
                 Your AI Stack Is Probably Too Expensive.
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl leading-relaxed">
-                Most startups overpay for overlapping AI subscriptions and enterprise plans they don't need. 
+                Most startups overpay for overlapping AI subscriptions and enterprise plans they don&apos;t need. 
                 Audit your stack in 60 seconds and discover immediate savings.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto">
@@ -92,7 +92,7 @@ export default function LandingPage() {
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="h-16 w-16 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl font-bold">1</div>
                 <h3 className="text-xl font-bold">Input Your Stack</h3>
-                <p className="text-gray-500">Tell us which AI tools your team uses, the plans you're on, and your total seat count.</p>
+                <p className="text-gray-500">Tell us which AI tools your team uses, the plans you&apos;re on, and your total seat count.</p>
               </div>
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="h-16 w-16 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl font-bold">2</div>
@@ -128,7 +128,7 @@ export default function LandingPage() {
                       <p className="text-sm text-gray-500">Series A SaaS Startup</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 italic">"We were paying for both Cursor and GitHub Copilot for all 40 engineers. Standardizing on one saved us instantly."</p>
+                  <p className="text-gray-600 mb-6 italic">&quot;We were paying for both Cursor and GitHub Copilot for all 40 engineers. Standardizing on one saved us instantly.&quot;</p>
                   <div className="border-t pt-4">
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Before</span>
@@ -153,7 +153,7 @@ export default function LandingPage() {
                       <p className="text-sm text-gray-500">Seed Stage Biotech</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 italic">"We defaulted to ChatGPT Enterprise for security, but the Team plan provided the same privacy features we needed for a 5-person team."</p>
+                  <p className="text-gray-600 mb-6 italic">&quot;We defaulted to ChatGPT Enterprise for security, but the Team plan provided the same privacy features we needed for a 5-person team.&quot;</p>
                   <div className="border-t pt-4">
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Before</span>

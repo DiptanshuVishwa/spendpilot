@@ -49,6 +49,7 @@ export function AuditForm() {
   // Save to localStorage on change
   useEffect(() => {
     if (mounted) {
+      // eslint-disable-next-line react-hooks/incompatible-library
       const subscription = form.watch((value) => {
         localStorage.setItem('spendpilot_audit_form', JSON.stringify(value));
       });

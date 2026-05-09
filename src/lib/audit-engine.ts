@@ -1,5 +1,4 @@
-import { AuditFormData, AuditResult, ToolRecommendation, AIStackItem } from '../types';
-import { PRICING_DATA } from '../data/pricing';
+import { AuditFormData, AuditResult, ToolRecommendation } from '../types';
 
 export function runAuditEngine(data: AuditFormData): AuditResult {
   const recommendations: ToolRecommendation[] = [];
@@ -7,8 +6,6 @@ export function runAuditEngine(data: AuditFormData): AuditResult {
 
   // Track if we have overlapping tools
   const hasClaude = data.tools.some(t => t.toolName === 'Claude');
-  const hasChatGPT = data.tools.some(t => t.toolName === 'ChatGPT');
-  const hasCursor = data.tools.some(t => t.toolName === 'Cursor');
   const hasCopilot = data.tools.some(t => t.toolName === 'GitHub Copilot');
 
   data.tools.forEach(tool => {

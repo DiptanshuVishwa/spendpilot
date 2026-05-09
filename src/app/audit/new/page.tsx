@@ -21,7 +21,7 @@ export default function NewAuditPage() {
             Audit your AI stack
           </h1>
           <p className="text-lg text-gray-500">
-            Enter your current tools, plans, and spend. We'll run a deterministic analysis to find consolidation opportunities and savings.
+            Enter your current tools, plans, and spend. We&apos;ll run a deterministic analysis to find consolidation opportunities and savings.
           </p>
         </div>
         
