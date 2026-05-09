@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SpendPilot - AI Spend Audit SaaS
 
-## Getting Started
+SpendPilot is a production-quality startup MVP built to help engineering teams and startup founders audit their AI tool stack, discover overlapping subscriptions, and optimize their burn rate.
 
-First, run the development server:
+## 🚀 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Many startups overpay for redundant AI tools (e.g., Cursor + Copilot) or enterprise plans they don't need. SpendPilot uses a **deterministic pricing engine** to analyze a user's AI stack, calculate exact monthly and annual savings, and generate a personalized executive summary.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Features
+- **Deterministic Audit Engine:** No hallucinations. Savings are calculated based on official pricing data.
+- **Dynamic Tool Stack Builder:** Add multiple tools, plans, and seats.
+- **AI Executive Summary:** Uses Groq (Llama 3) to generate a founder-focused summary of the audit.
+- **Shareable Reports:** Secure, public-facing URLs to share with teams.
+- **Lead Capture:** Captures emails *after* providing value, using Resend for delivery.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Database:** Supabase (PostgreSQL)
+- **AI:** Groq API (llama-3.3-70b-versatile)
+- **Emails:** Resend
+- **Validation:** Zod + React Hook Form
+- **Testing:** Vitest
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Local Setup
 
-## Learn More
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Copy `.env.local.example` to `.env.local` and add your keys (Supabase, Groq, Resend).
+4. Run Supabase migrations (optional for local UI testing, required for saving reports):
+   Execute `supabase/migrations/0000_initial.sql` in your Supabase SQL editor.
+5. Start the dev server: `npm run dev`
 
-To learn more about Next.js, take a look at the following resources:
+## 🌍 Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is optimized for deployment on **Vercel**.
+1. Push to GitHub.
+2. Import project into Vercel.
+3. Add Environment Variables in Vercel settings.
+4. Deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*Deployed URL Placeholder: https://spendpilot.vercel.app*
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📸 Screenshots
+*(Placeholders for actual screenshots)*
+- `landing-page.png`
+- `audit-form.png`
+- `savings-report.png`
